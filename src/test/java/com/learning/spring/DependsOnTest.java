@@ -1,5 +1,6 @@
 package com.learning.spring;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
@@ -19,5 +20,6 @@ public class DependsOnTest {
     @Test
     void testDependsOn() {
         Foo foo = aplicationContext.getBean(Foo.class);
+        Assertions.assertThat(foo).isNotNull();
     } 
 } 
