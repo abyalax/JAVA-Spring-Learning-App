@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.learning.spring.Data.Bar;
 import com.learning.spring.Data.Foo;
 
 public class ScopeTest {
@@ -25,5 +26,17 @@ public class ScopeTest {
         
         Assertions.assertThat(foo1).isNotEqualTo(foo2);
         Assertions.assertThat(foo2).isNotEqualTo(foo3);
+    }
+
+    @Test
+    void testDoubletonScope() {
+        Bar bar1 = applicationContext.getBean(Bar.class);
+        Bar bar2 = applicationContext.getBean(Bar.class);
+        Bar bar3 = applicationContext.getBean(Bar.class);
+        Bar bar4 = applicationContext.getBean(Bar.class);
+
+        Assertions.assertThat(bar1).isNotEqualTo(bar2);
+        Assertions.assertThat(bar2).isNotEqualTo(bar3);
+        Assertions.assertThat(bar3).isNotEqualTo(bar4);
     }
 }

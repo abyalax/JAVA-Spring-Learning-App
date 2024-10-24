@@ -15,7 +15,6 @@ public class DependencyInjectionTest {
     private ApplicationContext applicationContext;
 
     @BeforeEach
-    @SuppressWarnings("unused")
     void setup() {
         applicationContext = new AnnotationConfigApplicationContext(DependencyInjection.class);
     }
